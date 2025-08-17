@@ -329,7 +329,7 @@ const styles: Record<string, React.CSSProperties> = {
     },
     checkbox: {
         display: "flex", alignItems: "center", gap: 8, padding: "8px 10px",
-        border: "1px solid #e7eaef", borderRadius: 10, background: "#fff",
+        border: "1px solid #e7eaef", borderRadius: 10, background: "#fff",  color: "#000",
     },
     radio: { display: "inline-flex", alignItems: "center", gap: 8 },
     button: {
