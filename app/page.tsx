@@ -351,11 +351,28 @@ const styles: Record<string, React.CSSProperties> = {
 
 const globalCss = `
   * { box-sizing: border-box; }
-  html, body { margin: 0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial; }
+  html, body {
+    margin: 0;
+    font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial;
+  }
   input, select, textarea { font: inherit; }
   button[disabled] { opacity: .7; cursor: not-allowed; }
+
   @media (prefers-color-scheme: dark) {
     body { background: #0b0d10; color: #eaeaea; }
   }
-`;
 
+  /* === Minimal-Fix für Mobile Kontrast === */
+  input, select, textarea {
+    color-scheme: light; /* sorgt dafür, dass iOS sie nicht hellgrau/dunkel umfärbt */
+    background-color: #fff;
+    color: #000;
+  }
+
+  /* Checkboxen & Radios in JU-Blau */
+  input[type="checkbox"], input[type="radio"] {
+    accent-color: ${JU_BLUE};
+    width: 18px;
+    height: 18px;
+  }
+`;
