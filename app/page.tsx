@@ -331,7 +331,7 @@ const styles: Record<string, React.CSSProperties> = {
         display: "flex", alignItems: "center", gap: 8, padding: "8px 10px",
         border: "1px solid #e7eaef", borderRadius: 10, background: "#fff",  color: "#000",
     },
-    radio: { display: "inline-flex", alignItems: "center", gap: 8 },
+    radio: { display: "inline-flex", alignItems: "center", gap: 8,  color: "#000"},
     button: {
         display: "inline-flex", alignItems: "center", justifyContent: "center",
         padding: "12px 16px", borderRadius: 12, background: JU_BLUE, color: "#fff",
