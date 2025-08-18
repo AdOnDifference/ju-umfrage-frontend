@@ -27,7 +27,7 @@ export default function Header() {
                     Startseite
                 </Link>
                 <Link href="/ueber-uns" className="nav-link">
-                    Über uns
+                    Wir
                 </Link>
             </nav>
 
