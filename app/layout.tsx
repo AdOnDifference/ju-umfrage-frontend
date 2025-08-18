@@ -15,6 +15,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <html lang="de">
         <head>
             <meta name="color-scheme" content="light" />
+            <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+            <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: dark)" />
         </head>
         <body className={`${inter.className} min-h-dvh flex flex-col`}>
         <main className="flex-1">{children}</main>
