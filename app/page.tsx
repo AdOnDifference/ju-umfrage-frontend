@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useMemo, useState } from "react";
-import Image from "next/image";
+import Header from "../components/Header";
 
 const JU_BLUE = "#003572";
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
@@ -87,8 +87,8 @@ export default function Page() {
             newErrors.otherTopic = "Bitte beschreibe „Sonstiges“.";
         }
         if (current.wantsUpdates === "ja") {
-            if (!current.email.trim()) newErrors.email = "Bitte E‑Mail angeben.";
-            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(current.email)) newErrors.email = "Bitte gültige E‑Mail.";
+            if (!current.email.trim()) newErrors.email = "Bitte E-Mail angeben.";
+            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(current.email)) newErrors.email = "Bitte gültige E-Mail.";
         }
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
@@ -139,22 +139,11 @@ export default function Page() {
 
     return (
         <div style={styles.page}>
-            <header style={styles.header}>
-                <a href="/" style={styles.brand} aria-label="Startseite">
-                    <Image
-                        src="/JU%20Fl%C3%B6rsheim%20Logo%20white%20SD.png"
-                        alt="JU Flörsheim"
-                        width={160}
-                        height={32}
-                        priority
-                        style={{ height: 28, width: "auto" }}
-                    />
-                </a>
-            </header>
+            <Header />
 
             <main style={styles.main}>
                 <div style={styles.card}>
-                    <h1 style={styles.h1}>Flörsheim‑Umfrage</h1>
+                    <h1 style={styles.h1}>Flörsheim-Umfrage</h1>
                     <p style={styles.lead}>
                         Deine Meinung zählt. Beantworte kurz die Fragen – <span style={{ color: JU_BLUE }}>1–2 Minuten.</span>
                     </p>
@@ -218,7 +207,7 @@ export default function Page() {
                             {hasOther && (
                                 <input
                                     type="text"
-                                    placeholder='Kurz beschreiben: z. B. "Jugendräume"'
+                                    placeholder='Kurz beschreiben: z. B. "Jugendräume"'
                                     value={data.otherTopic}
                                     onChange={(e) => update("otherTopic", e.target.value)}
                                     style={styles.input}
@@ -242,7 +231,7 @@ export default function Page() {
 
                         {/* Updates */}
                         <div style={styles.field}>
-                            <label style={styles.label}>Möchtest du über Ergebnisse oder JU‑Aktionen informiert werden?</label>
+                            <label style={styles.label}>Möchtest du über Ergebnisse oder JU-Aktionen informiert werden?</label>
                             <div style={{ display: "flex", gap: 16 }}>
                                 <label style={styles.radio}>
                                     <input
@@ -267,7 +256,7 @@ export default function Page() {
                             {data.wantsUpdates === "ja" && (
                                 <input
                                     type="email"
-                                    placeholder="E‑Mail-Adresse (optional)"
+                                    placeholder="E-Mail-Adresse (optional)"
                                     value={data.email}
                                     onChange={(e) => update("email", e.target.value)}
                                     style={{ ...styles.input, marginTop: 10 }}
@@ -297,11 +286,6 @@ export default function Page() {
 // Styles
 const styles: Record<string, React.CSSProperties> = {
     page: { minHeight: "100svh", background: "#fafafa" },
-    header: {
-        height: 60, display: "flex", alignItems: "center", padding: "0 16px",
-        borderBottom: "1px solid #eee", background: "#fff", position: "sticky", top: 0, zIndex: 10,
-    },
-    brand: { display: "inline-flex", alignItems: "center", gap: 8, textDecoration: "none" },
     main: { display: "flex", justifyContent: "center", padding: "32px 16px" },
     card: {
         width: "100%", maxWidth: 720, background: "#fff", border: "1px solid #eee",
@@ -329,9 +313,9 @@ const styles: Record<string, React.CSSProperties> = {
     },
     checkbox: {
         display: "flex", alignItems: "center", gap: 8, padding: "8px 10px",
-        border: "1px solid #e7eaef", borderRadius: 10, background: "#fff",  color: "#000",
+        border: "1px solid #e7eaef", borderRadius: 10, background: "#fff", color: "#000",
     },
-    radio: { display: "inline-flex", alignItems: "center", gap: 8,  color: "#000"},
+    radio: { display: "inline-flex", alignItems: "center", gap: 8, color: "#000" },
     button: {
         display: "inline-flex", alignItems: "center", justifyContent: "center",
         padding: "12px 16px", borderRadius: 12, background: JU_BLUE, color: "#fff",
@@ -364,12 +348,11 @@ const globalCss = `
 
   /* === Minimal-Fix für Mobile Kontrast === */
   input, select, textarea {
-    color-scheme: light; /* sorgt dafür, dass iOS sie nicht hellgrau/dunkel umfärbt */
+    color-scheme: light;
     background-color: #fff;
     color: #000;
   }
 
-  /* Checkboxen & Radios in JU-Blau */
   input[type="checkbox"], input[type="radio"] {
     accent-color: ${JU_BLUE};
     width: 18px;
