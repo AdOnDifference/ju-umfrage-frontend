@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Header from "../../components/Header"; // relativer Pfad wichtig!
 
 export const metadata: Metadata = {
     title: "Impressum – JU Flörsheim",
@@ -9,37 +9,8 @@ export const metadata: Metadata = {
 export default function ImpressumPage() {
     return (
         <div>
-            {/* Header */}
-            <header
-                style={{
-                    height: 60,
-                    display: "flex",
-                    alignItems: "center",
-                    padding: "0 16px",
-                    borderBottom: "1px solid #eee",
-                    background: "#fff",
-                    position: "sticky",
-                    top: 0,
-                    zIndex: 10,
-                }}
-            >
-                <a
-                    href="/"
-                    style={{ display: "inline-flex", alignItems: "center", gap: 8, textDecoration: "none" }}
-                    aria-label="Startseite"
-                >
-                    <Image
-                        src="/JU%20Fl%C3%B6rsheim%20Logo%20white%20SD.png"
-                        alt="JU Flörsheim"
-                        width={160}
-                        height={32}
-                        priority
-                        style={{ height: 28, width: "auto" }}
-                    />
-                </a>
-            </header>
+            <Header />
 
-            {/* Impressum Content */}
             <div className="mx-auto max-w-3xl px-4 py-8">
                 <h1 className="text-3xl font-semibold mb-6">Impressum</h1>
 
@@ -75,7 +46,10 @@ export default function ImpressumPage() {
 
                 <h2 className="text-xl font-medium mt-8">EU-Streitschlichtung (§ 36 VSBG)</h2>
                 <p>
-                    Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: https://ec.europa.eu/consumers/odr.
+                    Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:{" "}
+                    <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener noreferrer" className="text-blue-600 underline">
+                        https://ec.europa.eu/consumers/odr
+                    </a>.
                     Wir sind nicht verpflichtet und nicht bereit, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.
                 </p>
             </div>
