@@ -1,7 +1,7 @@
-// app/layout.tsx
 import "./globals.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Footer from "../components/Footer"; // ✅ Header-Import entfernt
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -10,17 +10,16 @@ export const metadata: Metadata = {
     description: "Umfrage für den Kommunalwahlkampf der JU Flörsheim",
 };
 
-export default function RootLayout({
-                                       children,
-                                   }: {
-    children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="de">
         <head>
             <meta name="color-scheme" content="light" />
         </head>
-        <body className={inter.className}>{children}</body>
+        <body className={`${inter.className} min-h-dvh flex flex-col`}>
+        <main className="flex-1">{children}</main>
+        <Footer />
+        </body>
         </html>
     );
 }
