@@ -2,6 +2,8 @@
 
 import React, { useMemo, useState } from "react";
 import Header from "../components/Header";
+import Link from "next/link";
+
 
 const JU_BLUE = "#003572";
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
@@ -148,8 +150,56 @@ export default function Page() {
                         Deine Meinung zählt. Beantworte kurz die Fragen – <span style={{ color: JU_BLUE }}>1–2 Minuten.</span>
                     </p>
 
-                    {done?.ok && <div role="status" style={styles.success}>✅ Danke! Deine Antwort wurde gespeichert.</div>}
-                    {errors.form && <div role="alert" style={styles.error}>{errors.form}</div>}
+                    {/* Pop-up */}
+                    {(done || errors.form) && (
+                        <div style={styles.overlay}>
+                            <div style={styles.modal}>
+                                {done?.ok && (
+                                    <div>
+                                        <p style={{ fontSize: 18, fontWeight: 600, color: "#0b3a75" }}>
+                                            ✅ Vielen Dank für Deine Teilnahme an unserer Umfrage!
+                                        </p>
+                                        <p style={{ marginTop: 10, fontSize: 15, color: "#333" }}>
+                                            Deine Meinung hilft uns, Flörsheim noch besser zu machen.
+                                        </p>
+
+                                        <Link
+                                            href="/ueber-uns"
+                                            style={{
+                                                display: "inline-block",
+                                                marginTop: 20,
+                                                textDecoration: "none",
+                                                background: JU_BLUE,
+                                                color: "#fff",
+                                                padding: "10px 16px",
+                                                borderRadius: 8,
+                                                fontWeight: 600,
+                                            }}
+                                            prefetch
+                                        >
+                                            Zu den jungen Kandidaten
+                                        </Link>
+                                    </div>
+                                )}
+
+
+                                {errors.form && (
+                                    <p style={{ fontSize: 18, fontWeight: 600, color: "#a40000" }}>
+                                        ❌ {errors.form}
+                                    </p>
+                                )}
+                                <button
+                                    style={styles.modalButton}
+                                    onClick={() => {
+                                        setDone(null);
+                                        setErrors({});
+                                    }}
+                                >
+                                    Schließen
+                                </button>
+                            </div>
+                        </div>
+                    )}
 
                     <form onSubmit={onSubmit} noValidate>
                         {/* Altersgruppe */}
@@ -331,7 +381,36 @@ const styles: Record<string, React.CSSProperties> = {
     },
     errorText: { display: "block", marginTop: 6, color: "#a40000" },
     hint: { marginTop: 14, color: "#666" },
+
+    overlay: {
+        position: "fixed",
+        top: 0, left: 0, right: 0, bottom: 0,
+        background: "rgba(0,0,0,0.5)",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        zIndex: 1000,
+    },
+    modal: {
+        background: "#fff",
+        padding: "24px 32px",
+        borderRadius: 12,
+        boxShadow: "0 8px 30px rgba(0,0,0,0.2)",
+        textAlign: "center",
+        maxWidth: 400,
+    },
+    modalButton: {
+        marginTop: 20,
+        padding: "10px 16px",
+        borderRadius: 8,
+        background: JU_BLUE,
+        color: "#fff",
+        fontWeight: 600,
+        border: "none",
+        cursor: "pointer",
+    },
 };
+
 
 const globalCss = `
   * { box-sizing: border-box; }
@@ -358,4 +437,5 @@ const globalCss = `
     width: 18px;
     height: 18px;
   }
+  
 `;
