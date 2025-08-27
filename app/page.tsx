@@ -177,7 +177,7 @@ export default function Page() {
                                             }}
                                             prefetch
                                         >
-                                            Zu den jungen Kandidaten
+                                            Zu deinen jungen Kandidaten
                                         </Link>
                                     </div>
                                 )}

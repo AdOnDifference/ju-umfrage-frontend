@@ -2,6 +2,7 @@
 "use client";
 
 import Header from "../../components/Header";
+import InstagramCTA from "../../components/InstagramCTA";
 
 const JU_BLUE = "#003572";
 
@@ -48,12 +49,14 @@ export default function Page() {
 
                     <h2 style={styles.h2}>Kontakt</h2>
                     <p>
-                        Schreib uns gern an{" "}
+                        Du willst mitreden oder Feedback geben?{" "}
+                        Melde dich per Mail {" "}
                         <a href="mailto:jufloersheim@gmail.com" style={styles.link}>
                             jufloersheim@gmail.com
                         </a>{" "}
-                        oder folge uns auf Social Media.
+                        – oder folg uns direkt auf Insta 🚀⬇️
                     </p>
+                    <InstagramCTA />
                 </div>
             </main>
         </div>
