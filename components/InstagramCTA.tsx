@@ -13,10 +13,11 @@ export default function InstagramCTA() {
             <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-6">
                 {/* Left: Text + Button */}
                 <div>
-                    <h2 id="instagram-cta" className="text-xl md:text-xl font-semibold">
+                    <h2 id="instagram-cta" className="text-xl font-semibold text-gray-900 dark:text-gray-900">
                         Folge uns auf Instagram
                     </h2>
-                    <p className="mt-2 text-base md:text-lg text-black/80 dark:text-white/80">
+
+                    <p className="mt-2 text-base md:text-lg text-gray-800 dark:text-gray-800">
                         Aktuelle Aktionen, Einblicke hinter die Kulissen und Ergebnisse der Umfrage:
                         <span className="font-medium"> @ju_floersheim</span>
                     </p>
