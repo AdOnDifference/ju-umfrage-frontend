@@ -4,6 +4,52 @@ import React, { useMemo, useState } from "react";
 import Header from "../components/Header";
 import Link from "next/link";
 
+import { useEffect } from "react";
+
+function MailjetEmbed() {
+    const SRC = "https://s9h3i.mjt.lu/wgt/s9h3i/0l8h/form?c=5b7985b6";
+    const SCRIPT_SRC = "https://app.mailjet.com/pas-nc-embedded-v1.js";
+
+    useEffect(() => {
+        // Script nur einmal anhängen
+        if (!document.querySelector(`script[src="${SCRIPT_SRC}"]`)) {
+            const s = document.createElement("script");
+            s.src = SCRIPT_SRC;
+            s.async = true;
+            document.body.appendChild(s);
+            return () => {
+                // beim Unmount wieder entfernen (optional)
+                document.body.removeChild(s);
+            };
+        }
+    }, []);
+
+    return (
+        <div style={{ marginTop: 10 }}>
+            <iframe
+                data-w-type="embedded"
+                title="Newsletter Anmeldung"
+                frameBorder={0}
+                scrolling="no"
+                marginHeight={0}
+                marginWidth={0}
+                width="100%"
+                // 👉 Fallback-Höhe, bis das Mailjet-Script auf die richtige Höhe resized
+                style={{ height: 360, border: "0" }}
+                src={SRC}
+            />
+            <small style={{ display: "block", marginTop: 8, color: "#666" }}>
+                Double-Opt-In via Mailjet. Details in unserer{" "}
+                <a href="/datenschutz" style={{ textDecoration: "underline" }}>
+                    Datenschutzerklärung
+                </a>.
+            </small>
+        </div>
+    );
+}
+
+
+
 
 const JU_BLUE = "#003572";
 const BASE_URL = process.env.NEXT_PUBLIC_API_URL ?? "";
@@ -88,13 +134,11 @@ export default function Page() {
         if (current.topics.includes("Sonstiges") && !current.otherTopic.trim()) {
             newErrors.otherTopic = "Bitte beschreibe „Sonstiges“.";
         }
-        if (current.wantsUpdates === "ja") {
-            if (!current.email.trim()) newErrors.email = "Bitte E-Mail angeben.";
-            else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(current.email)) newErrors.email = "Bitte gültige E-Mail.";
-        }
+        // ❌ keine Email-Validierung mehr – DOI & Prüfungen macht Mailjet
         setErrors(newErrors);
         return Object.keys(newErrors).length === 0;
     }
+
 
     async function onSubmit(e: React.FormEvent) {
         e.preventDefault();
@@ -109,7 +153,7 @@ export default function Page() {
                 other_topic: hasOther ? data.otherTopic || null : null,
                 comment: data.changeIdeas || null,
                 wants_updates: data.wantsUpdates === "ja",
-                email: data.wantsUpdates === "ja" ? data.email : "",
+                email: "",
             };
 
             const res = await fetch(`${BASE_URL}/v1/survey`, {
@@ -281,7 +325,9 @@ export default function Page() {
 
                         {/* Updates */}
                         <div style={styles.field}>
-                            <label style={styles.label}>Möchtest du über Ergebnisse oder JU-Aktionen informiert werden?</label>
+                            <label style={styles.label}>
+                                Möchtest du über Ergebnisse oder JU-Aktionen informiert werden?
+                            </label>
                             <div style={{ display: "flex", gap: 16 }}>
                                 <label style={styles.radio}>
                                     <input
@@ -303,17 +349,10 @@ export default function Page() {
                                 </label>
                             </div>
 
-                            {data.wantsUpdates === "ja" && (
-                                <input
-                                    type="email"
-                                    placeholder="E-Mail-Adresse (optional)"
-                                    value={data.email}
-                                    onChange={(e) => update("email", e.target.value)}
-                                    style={{ ...styles.input, marginTop: 10 }}
-                                />
-                            )}
-                            {errors.email && <small style={styles.errorText}>{errors.email}</small>}
+                            {/* Mailjet-Formular nur bei „Ja“ */}
+                            {data.wantsUpdates === "ja" && <MailjetEmbed />}
                         </div>
+
 
                         <button type="submit" style={styles.button} disabled={submitting}>
                             {submitting ? "Wird gesendet…" : "Absenden"}
