@@ -13,24 +13,26 @@ function MailjetEmbed() {
     const [height, setHeight] = useState(420);
 
     useEffect(() => {
-        // größere Fallback-Höhe auf Mobile
+        // Mobile → größere Höhe, Desktop → kleinere Höhe
         const mq = window.matchMedia("(max-width: 640px)");
-        setHeight(mq.matches ? 820 : 420);
+        setHeight(mq.matches ? 720 : 420);
 
-        // Mailjet Auto-Resize Script nur einmal anhängen
+        // Mailjet Auto-Resize Script nur einmal einfügen
         if (!document.querySelector(`script[src="${SCRIPT_SRC}"]`)) {
             const s = document.createElement("script");
             s.src = SCRIPT_SRC;
             s.async = true;
             document.body.appendChild(s);
             return () => {
-                document.body.removeChild(s);
+                if (s.parentNode) {
+                    document.body.removeChild(s);
+                }
             };
         }
     }, []);
 
     return (
-        <div className="mj-embed" style={{ marginTop: 10, overflow: "visible" }}>
+        <div className="mj-embed" style={{ marginTop: 10, marginBottom: 0, overflow: "visible" }}>
             <iframe
                 data-w-type="embedded"
                 title="Newsletter Anmeldung"
@@ -39,11 +41,10 @@ function MailjetEmbed() {
                 marginHeight={0}
                 marginWidth={0}
                 width="100%"
-                // große Fallback-Höhe für Mobile; Mailjet-Script setzt später die exakte Höhe
                 style={{ height, border: "0", display: "block" }}
                 src={SRC}
             />
-            <small style={{ display: "block", marginTop: 8, color: "#666" }}>
+            <small style={{ display: "block", marginTop: 8, marginBottom: 0, color: "#666" }}>
                 Double-Opt-In via Mailjet. Details in unserer{" "}
                 <a href="/datenschutz" style={{ textDecoration: "underline" }}>
                     Datenschutzerklärung
@@ -52,6 +53,7 @@ function MailjetEmbed() {
         </div>
     );
 }
+
 
 
 
