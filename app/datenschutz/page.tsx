@@ -53,13 +53,23 @@ export default function Page() {
                     <em>Zweck:</em> Sicherstellung des technischen Betriebs und Schutz vor Missbrauch.
                 </p>
 
+                <h3 className="font-semibold mt-4">c) Newsletter (Mailjet)</h3>
+                <p>
+                    Wenn du dich für unseren Newsletter anmeldest, werden deine Angaben (insbesondere deine
+                    E-Mail-Adresse) bei unserem Dienstleister{" "}
+                    <strong>Mailjet SAS, 13-13 bis, Rue de l’Aubrac, 75012 Paris, Frankreich</strong> gespeichert.
+                    Der Versand erfolgt nur nach deiner ausdrücklichen Einwilligung (Double-Opt-In). Du kannst deine
+                    Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, z. B. über den Abmeldelink in
+                    jeder E-Mail.
+                </p>
+
                 <h2 className="text-xl font-medium mt-6">3. Rechtsgrundlagen</h2>
                 <ul className="list-disc ml-6 space-y-1">
                     <li>
                         Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse) – Betrieb der Website &amp; Auswertung der
                         Umfrage
                     </li>
-                    <li>Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) – E-Mail-Kontakt bei Updates</li>
+                    <li>Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) – Newsletter-Versand und E-Mail-Kontakt bei Updates</li>
                 </ul>
 
                 <h2 className="text-xl font-medium mt-6">4. Speicherdauer</h2>
@@ -74,15 +84,19 @@ export default function Page() {
                     IT-Dienstleister im Rahmen einer Auftragsverarbeitung, insbesondere unser Hosting-Anbieter{" "}
                     <strong>Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA</strong>, unser
                     Datenbank-Dienstleister{" "}
-                    <strong>Neon, Inc., 228 Park Ave S, PMB 73776, New York, NY 10003, USA</strong> {" "} sowie unser E-Mail-Dienstleister {" "}
-                    <strong>Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland</strong> {" "}
-                    (im Rahmen der Nutzung von Gmail). Keine Weitergabe an sonstige Dritte.
+                    <strong>Neon, Inc., 228 Park Ave S, PMB 73776, New York, NY 10003, USA</strong>, unser
+                    E-Mail-Dienstleister{" "}
+                    <strong>Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland</strong> (im Rahmen
+                    der Nutzung von Gmail), sowie unser Newsletter-Dienstleister{" "}
+                    <strong>Mailjet SAS, 13-13 bis, Rue de l’Aubrac, 75012 Paris, Frankreich</strong>. Keine
+                    Weitergabe an sonstige Dritte.
                 </p>
 
                 <h2 className="text-xl font-medium mt-6">6. Drittlandtransfer</h2>
                 <p>
-                    Eine Verarbeitung kann in den USA erfolgen (z. B. bei Vercel oder Neon). Ein angemessenes
-                    Schutzniveau wird über Standardvertragsklauseln (Art. 46 DSGVO) sichergestellt.
+                    Eine Verarbeitung kann in den USA oder anderen Drittländern erfolgen (z. B. bei Vercel, Neon oder
+                    Mailjet). Ein angemessenes Schutzniveau wird über Standardvertragsklauseln (Art. 46 DSGVO)
+                    sichergestellt.
                 </p>
 
                 <h2 className="text-xl font-medium mt-6">7. Verlinkungen zu sozialen Medien</h2>
@@ -110,8 +124,8 @@ export default function Page() {
 
                 <h2 className="text-xl font-medium mt-6">9. Widerruf von Einwilligungen</h2>
                 <p>
-                    Erteilte Einwilligungen (z. B. für E-Mail-Updates) kannst du jederzeit mit Wirkung für die Zukunft
-                    widerrufen.
+                    Erteilte Einwilligungen (z. B. für E-Mail-Updates oder den Newsletter) kannst du jederzeit mit
+                    Wirkung für die Zukunft widerrufen.
                 </p>
 
                 <h2 className="text-xl font-medium mt-6">10. Cookies / Tracking</h2>
