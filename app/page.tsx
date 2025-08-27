@@ -1,31 +1,36 @@
 "use client";
 
-import React, { useMemo, useState } from "react";
+import React, { useMemo, useState, useEffect } from "react";
 import Header from "../components/Header";
 import Link from "next/link";
 
-import { useEffect } from "react";
 
 function MailjetEmbed() {
     const SRC = "https://s9h3i.mjt.lu/wgt/s9h3i/0l8h/form?c=5b7985b6";
     const SCRIPT_SRC = "https://app.mailjet.com/pas-nc-embedded-v1.js";
 
+    // Responsive Fallback-Höhe (wird von Mailjet-Script später überschrieben)
+    const [height, setHeight] = useState(420);
+
     useEffect(() => {
-        // Script nur einmal anhängen
+        // größere Fallback-Höhe auf Mobile
+        const mq = window.matchMedia("(max-width: 640px)");
+        setHeight(mq.matches ? 820 : 420);
+
+        // Mailjet Auto-Resize Script nur einmal anhängen
         if (!document.querySelector(`script[src="${SCRIPT_SRC}"]`)) {
             const s = document.createElement("script");
             s.src = SCRIPT_SRC;
             s.async = true;
             document.body.appendChild(s);
             return () => {
-                // beim Unmount wieder entfernen (optional)
                 document.body.removeChild(s);
             };
         }
     }, []);
 
     return (
-        <div style={{ marginTop: 10 }}>
+        <div className="mj-embed" style={{ marginTop: 10, overflow: "visible" }}>
             <iframe
                 data-w-type="embedded"
                 title="Newsletter Anmeldung"
@@ -34,8 +39,8 @@ function MailjetEmbed() {
                 marginHeight={0}
                 marginWidth={0}
                 width="100%"
-                // 👉 Fallback-Höhe, bis das Mailjet-Script auf die richtige Höhe resized
-                style={{ height: 360, border: "0" }}
+                // große Fallback-Höhe für Mobile; Mailjet-Script setzt später die exakte Höhe
+                style={{ height, border: "0", display: "block" }}
                 src={SRC}
             />
             <small style={{ display: "block", marginTop: 8, color: "#666" }}>
@@ -47,7 +52,6 @@ function MailjetEmbed() {
         </div>
     );
 }
-
 
 
 
@@ -477,4 +481,10 @@ const globalCss = `
     height: 18px;
   }
   
+  .mj-embed iframe { width: 100%; border: 0; }
+@media (max-width: 640px) { .mj-embed iframe { height: 820px !important; } }
+@media (min-width: 641px) { .mj-embed iframe { height: 420px !important; } }
+
+  
 `;
+
