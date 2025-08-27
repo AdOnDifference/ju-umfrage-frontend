@@ -71,33 +71,56 @@ export default function Page() {
 
                 <h2 className="text-xl font-medium mt-6">5. Empfänger</h2>
                 <p>
-                    IT-Dienstleister (z. B. Hosting über Vercel) im Rahmen einer Auftragsverarbeitung. Keine Weitergabe
-                    an sonstige Dritte.
+                    IT-Dienstleister im Rahmen einer Auftragsverarbeitung, insbesondere unser Hosting-Anbieter{" "}
+                    <strong>Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA</strong>, unser
+                    Datenbank-Dienstleister{" "}
+                    <strong>Neon, Inc., 228 Park Ave S, PMB 73776, New York, NY 10003, USA</strong> {" "} sowie unser E-Mail-Dienstleister {" "}
+                    <strong>Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland</strong> {" "}
+                    (im Rahmen der Nutzung von Gmail). Keine Weitergabe an sonstige Dritte.
                 </p>
 
                 <h2 className="text-xl font-medium mt-6">6. Drittlandtransfer</h2>
                 <p>
-                    Eine Verarbeitung kann in den USA erfolgen (z. B. bei Vercel). Ein angemessenes Schutzniveau wird
-                    über Standardvertragsklauseln (Art. 46 DSGVO) sichergestellt.
+                    Eine Verarbeitung kann in den USA erfolgen (z. B. bei Vercel oder Neon). Ein angemessenes
+                    Schutzniveau wird über Standardvertragsklauseln (Art. 46 DSGVO) sichergestellt.
                 </p>
 
-                <h2 className="text-xl font-medium mt-6">7. Deine Rechte</h2>
+                <h2 className="text-xl font-medium mt-6">7. Verlinkungen zu sozialen Medien</h2>
+                <p>
+                    Auf unserer Website verlinken wir auf unser Instagram-Profil. Beim Besuch unseres Profils werden
+                    personenbezogene Daten (z. B. IP-Adresse) durch{" "}
+                    <strong>Meta Platforms Ireland Limited, 4 Grand Canal Square, Dublin 2, Irland</strong>{" "}
+                    verarbeitet. Nähere Infos findest du in der Datenschutzerklärung von Instagram:{" "}
+                    <a
+                        href="https://privacycenter.instagram.com/policy/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600 underline"
+                    >
+                        https://privacycenter.instagram.com/policy/
+                    </a>
+                </p>
+
+                <h2 className="text-xl font-medium mt-6">8. Deine Rechte</h2>
                 <p>
                     Du hast das Recht auf Auskunft (Art. 15), Berichtigung (Art. 16), Löschung (Art. 17),
                     Einschränkung (Art. 18), Datenübertragbarkeit (Art. 20), Widerspruch (Art. 21) sowie das Recht auf
                     Beschwerde bei einer Datenschutz-Aufsichtsbehörde.
                 </p>
 
-                <h2 className="text-xl font-medium mt-6">8. Widerruf von Einwilligungen</h2>
+                <h2 className="text-xl font-medium mt-6">9. Widerruf von Einwilligungen</h2>
                 <p>
                     Erteilte Einwilligungen (z. B. für E-Mail-Updates) kannst du jederzeit mit Wirkung für die Zukunft
                     widerrufen.
                 </p>
 
-                <h2 className="text-xl font-medium mt-6">9. Cookies / Tracking</h2>
-                <p>Wir setzen keine Tracking-Cookies oder Analyse-Tools ein.</p>
+                <h2 className="text-xl font-medium mt-6">10. Cookies / Tracking</h2>
+                <p>
+                    Wir setzen keine Tracking-Cookies oder Analyse-Tools ein. Die Übertragung deiner Daten erfolgt
+                    verschlüsselt (TLS/SSL).
+                </p>
 
-                <h2 className="text-xl font-medium mt-6">10. Kontakt</h2>
+                <h2 className="text-xl font-medium mt-6">11. Kontakt</h2>
                 <p>Fragen zum Datenschutz: jufloersheim@gmail.com</p>
             </div>
         </div>
