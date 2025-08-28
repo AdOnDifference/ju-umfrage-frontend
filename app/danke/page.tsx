@@ -7,10 +7,10 @@ export default function DankePage() {
                 Deine Anmeldung wurde bestätigt. Du erhältst künftig Updates der Jungen Union Flörsheim.
             </p>
             <a
-                href="https://ju-umfrage-frontend.vercel.app"
+                href="https://ju-umfrage-frontend.vercel.app/ueber-uns"
                 className="inline-block rounded-lg bg-blue-900 px-6 py-3 text-white font-medium hover:bg-blue-800 transition"
             >
-                Zur Startseite
+                Zu Deinen jungen Kandidaten
             </a>
         </main>
     );
