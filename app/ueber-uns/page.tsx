@@ -14,18 +14,30 @@ export default function Page() {
             <main style={styles.main}>
                 <div style={styles.card}>
                     <h1 style={styles.h1}>Über uns</h1>
-                    <p style={styles.lead}>
-                        Wir sind die <strong>Junge Union Flörsheim am Main</strong> – ein Team aus jungen
-                        Menschen, die unsere Stadt mitgestalten möchten. Gemeinsam setzen wir uns für
-                        Zukunftsthemen wie Infrastruktur, Digitalisierung, Sport und Kultur ein.
-                    </p>
+                    <>
+                        <>
+                            <p style={styles.lead}>
+                                Wir sind die <strong>Junge Union Flörsheim am Main</strong> – ein Team aus jungen
+                                Menschen, die unsere Stadt mitgestalten möchten. <br />
+                                <br />
+                                Die JU Flörsheim verbindet Politik, Freizeit und Freundschaft. Ob mit Vorwissen
+                                oder ganz neu dabei: Bei uns kannst Du Dich informieren, engagieren und Politik
+                                in Flörsheim oder im Main-Taunus-Kreis direkt miterleben. <br />
+                                <br />
+                                <strong>Lust mitzumachen?</strong> Komm zu unserem nächsten Treffen oder schreib uns!
+                            </p>
+
+                        </>
+
+                    </>
+
 
                     <h2 style={styles.h2}>Unsere Schwerpunkte</h2>
                     <ul style={styles.list}>
                         <li>🚦 Verkehr & Infrastruktur</li>
-                        <li>⚽ Sport, Freizeit & Kultur</li>
-                        <li>💻 Digitalisierung & Bildung</li>
-                        <li>🌳 Grünflächen & Umwelt</li>
+                        <li>👮‍♂️ Sicherheit & Sauberkeit</li>
+                        <li>📈 Wirtschaft & Einzelhandel</li>
+                        <li>💻 Digitalisierte Verwaltung</li>
                     </ul>
 
                     <h2 style={styles.h2}>Unser Team</h2>
