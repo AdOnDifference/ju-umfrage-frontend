@@ -121,6 +121,15 @@ export default function Page() {
                     Einschränkung (Art. 18), Datenübertragbarkeit (Art. 20), Widerspruch (Art. 21) sowie das Recht auf
                     Beschwerde bei einer Datenschutz-Aufsichtsbehörde.
                 </p>
+                <br />
+                <p>
+                    Die Teilnahme an unserer Umfrage ist freiwillig. Sie entscheiden selbst, ob und welche Angaben Sie machen.
+                    Aus einer fehlenden oder teilweisen Teilnahme entstehen Ihnen keinerlei Nachteile.
+                    Sofern Sie keine Daten bereitstellen möchten, können Sie die Umfrage jederzeit abbrechen;
+                    dies hat außer dem nicht erfolgten Eintrag in die Ergebnisstatistik keine weiteren Auswirkungen. #
+                    Einzig die Angabe Ihrer E‑Mail‑Adresse ist nur erforderlich, wenn Sie ausdrücklich unseren Newsletter oder künftige Informationen per E‑Mail erhalten möchten;
+                    auch diese Einwilligung können Sie jederzeit widerrufen.
+                </p>
 
                 <h2 className="text-xl font-medium mt-6">9. Widerruf von Einwilligungen</h2>
                 <p>
